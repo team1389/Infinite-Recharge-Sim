@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float turnSpeed = 5f;
     public float maxAngularVelocity = 5f;
     Rigidbody rb;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,16 +18,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    /**
-    void FixedUpdate()
-    {
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(0.0f, 0.0f, moveVertical);
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
-
-        rb.AddRelativeForce(movement * speed);
-    }**/
     void FixedUpdate()
     {
         float moveVertical = Input.GetAxis("Vertical");
@@ -37,18 +29,9 @@ public class PlayerController : MonoBehaviour
         rb.maxAngularVelocity = maxAngularVelocity;
         transform.Translate(movement * speed, Space.Self);
 
-        if (moveHorizontal !=0 && moveVertical == 0)
-        {
-            rb.AddRelativeTorque(0.0f, moveHorizontal * turnSpeed * 2, 0.0f, ForceMode.VelocityChange);
-        }
-        if (moveVertical < 0)
-        {
-           rb.AddRelativeTorque(0.0f, -moveHorizontal * turnSpeed, 0.0f, ForceMode.VelocityChange);
-        }
-        else
-        {
-           rb.AddRelativeTorque(0.0f, moveHorizontal * turnSpeed, 0.0f, ForceMode.VelocityChange);
-        }
+        rb.AddRelativeTorque(0.0f, moveHorizontal * turnSpeed, 0.0f, ForceMode.VelocityChange);
+     
+
 
     }
 }
