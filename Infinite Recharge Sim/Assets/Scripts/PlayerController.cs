@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 10f;
     public float turnSpeed = 5f;
     public float maxAngularVelocity = 5f;
-    Rigidbody rb;
 
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -30,5 +31,5 @@ public class PlayerController : MonoBehaviour
         transform.Translate(movement * speed, Space.Self);
 
         rb.AddRelativeTorque(0.0f, moveHorizontal * turnSpeed, 0.0f, ForceMode.VelocityChange);
-    }
+    }  
 }
