@@ -30,8 +30,5 @@ public class PlayerController : MonoBehaviour
         transform.Translate(movement * speed, Space.Self);
 
         rb.AddRelativeTorque(0.0f, moveHorizontal * turnSpeed, 0.0f, ForceMode.VelocityChange);
-     
-
-
     }
 }
